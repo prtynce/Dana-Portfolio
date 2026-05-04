@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -105,10 +104,10 @@ export function AboutMe() {
             {/* Resume Download */}
             <div className="pt-6">
               <Button asChild size="lg" className="rounded-2xl shadow-lg shadow-primary/30 w-full md:w-auto">
-                <Link href="/dana.pdf" download="Dana-Resume.pdf" className="flex items-center gap-2">
+                <a href="/dana.pdf" download="Dana-Resume.pdf" className="flex items-center gap-2">
                   <Download className="w-5 h-5" />
                   Download Resume
-                </Link>
+                </a>
               </Button>
             </div>
           </div>
