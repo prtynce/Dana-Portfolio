@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Card } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -117,4 +117,3 @@ export function AboutMe() {
     </section>
   );
 }
-

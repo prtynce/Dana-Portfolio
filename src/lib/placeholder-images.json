@@ -9,7 +9,7 @@
     {
       "id": "profile-pic",
       "description": "Professional profile placeholder",
-      "imageUrl": "https://picsum.photos/seed/dana-profile/600/600",
+      "imageUrl": "/dana.png",
       "imageHint": "professional woman"
     },
     {
