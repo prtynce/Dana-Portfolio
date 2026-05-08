@@ -1,11 +1,12 @@
 
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ThemeToggle } from "./theme-toggle";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Code2, Music } from "lucide-react";
 import { cn } from "@/lib/utils";
+
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -21,6 +22,9 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [scrollProgress, setScrollProgress] = useState(0);
+
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -83,9 +87,31 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-4">
-          <Button variant="ghost" size="icon" className="rounded-full text-primary hover:bg-primary/10">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="rounded-full text-primary hover:bg-primary/10"
+            onClick={() => {
+              const audio = audioRef.current;
+              if (!audio) return;
+
+              if (audio.paused) {
+                // Set infinite loop + play
+                audio.loop = true;
+                audio.play().catch(() => {
+                  // ignore autoplay restrictions; user gesture should usually allow it
+                });
+              } else {
+                audio.pause();
+              }
+            }}
+            aria-label="Play/Pause music"
+          >
             <Music className="w-5 h-5" />
           </Button>
+
+          <audio ref={audioRef} src="/dana-collection/music.mp3" preload="auto" />
+
           <ThemeToggle />
           <Button
             variant="ghost"

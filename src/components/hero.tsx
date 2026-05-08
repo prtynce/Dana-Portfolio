@@ -52,11 +52,25 @@ export function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-reveal">
-          <Button size="lg" className="rounded-full px-8 gap-2 bg-primary hover:bg-primary/90 shadow-lg shadow-primary/30">
-            View Projects <ArrowRight className="w-4 h-4" />
+          <Button
+            asChild
+            size="lg"
+            className="rounded-full px-8 gap-2 bg-primary hover:bg-primary/90 shadow-lg shadow-primary/30 w-full sm:w-auto"
+          >
+            <a href="#projects">
+              View Projects <ArrowRight className="w-4 h-4" />
+            </a>
           </Button>
-          <Button size="lg" variant="outline" className="rounded-full px-8 gap-2 border-primary/30 hover:bg-primary/5">
-            Download Resume <Download className="w-4 h-4" />
+
+          <Button
+            asChild
+            size="lg"
+            variant="outline"
+            className="rounded-full px-8 gap-2 border-primary/30 hover:bg-primary/5 w-full sm:w-auto"
+          >
+            <a href="/dana.pdf" download="Dana-Resume.pdf">
+              Download Resume <Download className="w-4 h-4" />
+            </a>
           </Button>
         </div>
       </div>
