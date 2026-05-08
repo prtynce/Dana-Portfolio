@@ -70,12 +70,13 @@ export function AboutMe() {
                 </p>
               </div>
               
-              <button 
+              <Button
+                variant="link"
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="text-primary font-semibold hover:underline mt-2 text-sm uppercase tracking-wider"
+                className="mt-2 w-full sm:w-auto text-primary font-semibold text-sm uppercase tracking-wider p-0 h-auto hover:underline"
               >
                 {isExpanded ? "Show Less" : "Read More"}
-              </button>
+              </Button>
             </div>
 
             {/* Skills */}

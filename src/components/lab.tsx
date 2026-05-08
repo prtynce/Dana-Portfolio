@@ -57,7 +57,7 @@ export function Lab() {
                 <p className="text-sm text-muted-foreground">
                   Enter keywords (e.g., &quot;Bionic Hand&quot;, &quot;Mars Rover&quot;, &quot;Smart City&quot;)
                 </p>
-                <div className="flex gap-2">
+                <div className="flex flex-col sm:flex-row gap-2">
                   <Input 
                     placeholder="Enter tech keywords..." 
                     value={keyword}
