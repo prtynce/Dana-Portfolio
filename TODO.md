@@ -1,19 +1,9 @@
-# Task Progress: Update About Me Image & Add Resume
+# TODO
 
-## Steps from Plan:
-- [x] 1. Create public/ directory and copy dana.png & dana.pdf from root to public/
-
-- [x] 1. Create public/ directory and copy dana.png & dana.pdf from root to public/
-
-- [x] 2. Update src/lib/placeholder-images.json: profile-pic imageUrl to "/dana.png"
-
-Current step: 3/4
-- [x] 3. Update src/components/about-me.tsx: Add resume download button/link after tags section
-
-Current step: 4/4
-- [x] 4. Test with npm run dev
-
-**Task complete!**
-
-Current step: 1/4
+- [x] Inspect existing components (AboutMe, Timeline) and image placeholder system
+- [x] Copy images from `src/dana collection/` into `public/dana-collection/`
+- [ ] Update `src/lib/placeholder-images.json` to include achievement images
+- [ ] Update `src/components/timeline.tsx` to display achievement images using the new placeholders
+- [ ] Ensure `next/image` paths are valid and build/lint succeeds
+- [ ] Final smoke test (start dev server / build)
 

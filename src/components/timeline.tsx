@@ -1,43 +1,92 @@
 
 "use client";
 
+import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Award, School, Trophy, Rocket } from "lucide-react";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
 
-const achievements = [
+const getAchievementImageUrl = (id?: string) => {
+  if (!id) return "";
+  return PlaceHolderImages.find((i) => i.id === id)?.imageUrl || "";
+};
+
+type AchievementItem = {
+  year: string;
+  title: string;
+  org: string;
+  desc: string;
+  icon: React.ComponentType<{ className?: string }>;
+  type: string;
+  imageId?: string;
+};
+
+const achievements: AchievementItem[] = [
   {
-    year: "2024",
-    title: "Regional Hackathon Winner",
-    org: "TechInnovate Philippines",
-    desc: "Led a team of 4 to build an AI-driven disaster response prototype, securing first place among 50 competing teams.",
+    year: "2019",
+    title: "CAT Officer",
+    org: "Landy National High School",
+    desc: "Served as a Corps Officer demonstrating leadership, discipline, teamwork, and responsibility through military training activities and school-based programs.",
     icon: Trophy,
-    type: "Award"
+    type: "Award",
+    imageId: "achievement-cat"
   },
   {
-    year: "2023",
-    title: "Dean's List Awardee",
-    org: "College of Engineering",
-    desc: "Maintained a consistent GPA of 1.25, demonstrating academic excellence in Computer Engineering core subjects.",
-    icon: School,
-    type: "Academic"
-  },
-  {
-    year: "2023",
-    title: "Robotics Research Lead",
-    org: "University Robotics Lab",
-    desc: "Spearheaded research on swarming algorithms for small-scale autonomous rovers.",
-    icon: Rocket,
-    type: "Role"
-  },
-  {
-    year: "2022",
-    title: "Certified Python Professional",
-    org: "Python Institute",
-    desc: "Successfully cleared the professional certification for advanced software development in Python.",
+    year: "2020 – 2021",
+    title: "Chief Girl Scout Medalist",
+    org: "Girl Scouts",
+    desc: "Recognized for outstanding leadership, service, discipline, and dedication as a Girl Scout, achieving one of the highest honors in scouting through active participation and excellence in various community and leadership activities.",
     icon: Award,
-    type: "Certification"
+    type: "Recognition",
+    imageId: "achievement-gsp"
+  },
+  {
+    year: "2018 – 2022",
+    title: "Ang Liwanag — Photojournalist",
+    org: "Campus Journalism",
+    desc: "Worked as a photojournalist responsible for capturing meaningful events and stories through photography, enhancing campus journalism with creative visual storytelling and media documentation.",
+    icon: School,
+    type: "Role",
+    imageId: "achievement-journalism"
+  },
+  {
+    year: "2021 – 2022",
+    title: "RSPC Online Publishing (Filipino) — 1st Runner-Up",
+    org: "Regional Schools Press Conference",
+    desc: "Awarded 1st Runner-Up in the Regional Schools Press Conference for excellence in online publishing under the Filipino category, showcasing strong creativity, collaboration, and digital journalism skills.",
+    icon: Trophy,
+    type: "Award",
+    imageId: "achievement-rspc"
+  },
+  {
+    year: "2023 – 2025",
+    title: "The Matrix Today — Photojournalist / Content Creator",
+    org: "Student Media",
+    desc: "Contributed as a photojournalist and content creator by producing engaging visual and digital content, documenting campus activities, and promoting student involvement through creative media production.",
+    icon: Rocket,
+    type: "Role",
+    imageId: "achievement-tmt"
+  },
+  {
+    year: "2024 – 2025",
+    title: "MarSU.ICpEP.SE A.Y. 2024–2025 — Auditor",
+    org: "ICpEP SE",
+    desc: "Served as the Auditor of the Institute of Computer Engineers of the Philippines – Student Edition, ensuring proper financial monitoring, transparency, and accountability within the organization.",
+    icon: Award,
+    type: "Leadership",
+    imageId: "achievement-auditor"
+  },
+  {
+    year: "2025 – 2026",
+    title: "MarSU.ICpEP.SE A.Y. 2025–2026 — Vice President for Education",
+    org: "ICpEP SE",
+    desc: "Currently serving as Vice President for Education, leading academic-related initiatives, supporting student learning and development, and organizing educational programs that strengthen the skills and knowledge of Computer Engineering students.",
+    icon: School,
+    type: "Leadership",
+    imageId: "achievement-vp"
   }
 ];
+
 
 export function Timeline() {
   return (
@@ -55,14 +104,27 @@ export function Timeline() {
                 <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
                   <item.icon className="w-24 h-24" />
                 </div>
-                
-                <div className="flex items-center gap-4 mb-4">
-                  <span className="text-primary font-bold text-lg">{item.year}</span>
-                  <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 rounded-full">
-                    {item.type}
-                  </Badge>
+
+                <div className="flex items-start gap-6 mb-4">
+                  <div className="relative w-20 h-20 rounded-2xl overflow-hidden border border-primary/20 bg-background/40 flex-shrink-0">
+                    {item.imageId && getAchievementImageUrl(item.imageId) ? (
+                      <Image
+                        src={getAchievementImageUrl(item.imageId)}
+                        alt={`${item.title} photo`}
+                        fill
+                        className="object-cover"
+                      />
+                    ) : null}
+                  </div>
+
+                  <div className="flex items-center gap-4 mb-0 flex-wrap">
+                    <span className="text-primary font-bold text-lg">{item.year}</span>
+                    <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 rounded-full">
+                      {item.type}
+                    </Badge>
+                  </div>
                 </div>
-                
+
                 <h3 className="text-2xl font-headline font-bold mb-2">{item.title}</h3>
                 <p className="text-primary/70 font-medium mb-4">{item.org}</p>
                 <p className="text-muted-foreground leading-relaxed">

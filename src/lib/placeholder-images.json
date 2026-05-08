@@ -29,6 +29,48 @@
       "description": "Web Development Project Thumbnail",
       "imageUrl": "https://picsum.photos/seed/project-web/800/600",
       "imageHint": "web code"
+    },
+    {
+      "id": "achievement-cat",
+      "description": "CAT Officer award photo",
+      "imageUrl": "/dana-collection/cat.jpg",
+      "imageHint": "CAT officer"
+    },
+    {
+      "id": "achievement-gsp",
+      "description": "Chief Girl Scout Medalist award photo",
+      "imageUrl": "/dana-collection/gsp.jpg",
+      "imageHint": "Girl Scout medalist"
+    },
+    {
+      "id": "achievement-journalism",
+      "description": "Ang Liwanag photojournalist award photo",
+      "imageUrl": "/dana-collection/journalism.jpg",
+      "imageHint": "photojournalist"
+    },
+    {
+      "id": "achievement-rspc",
+      "description": "RSPC Online Publishing Filipino award photo",
+      "imageUrl": "/dana-collection/rspc.jpg",
+      "imageHint": "online publishing"
+    },
+    {
+      "id": "achievement-tmt",
+      "description": "The Matrix Today photojournalist/content creator award photo",
+      "imageUrl": "/dana-collection/tmt.jpg",
+      "imageHint": "content creator"
+    },
+    {
+      "id": "achievement-auditor",
+      "description": "Institute Auditor (ICpEP SE) award photo",
+      "imageUrl": "/dana-collection/auditor.jpg",
+      "imageHint": "auditor"
+    },
+    {
+      "id": "achievement-vp",
+      "description": "Vice President for Education award photo",
+      "imageUrl": "/dana-collection/vp.jpg",
+      "imageHint": "vice president education"
     }
   ]
 }
